@@ -40,4 +40,10 @@ flask db upgrade
 python run.py
 ```
 
+###### There is SQLlite DB file named "hashkart.db" which has some data in it and also provided the postmant collection named HashKart Backend.postman_collection.json, use that for testing the API's
+
+###### User Credential for login using hashkart.db
+"email": "ajay@test.com",
+"password": "myname05"
+
 ###### For any questions or support, please contact ajsihag@deloitte.com

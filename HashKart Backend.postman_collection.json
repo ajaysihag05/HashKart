@@ -1,0 +1,2583 @@
+{
+	"info": {
+		"_postman_id": "308f1659-c303-4806-81ed-4076bf61fb12",
+		"name": "HashKart Backend",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "41331744"
+	},
+	"item": [
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "User SignUp",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"username\": \"ajaysihag\",\r\n  \"email\": \"ajay@test.com\",\r\n  \"password\": \"myname05\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/users/signup",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"users",
+								"signup"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "demo",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"username\": \"ajaysihag\",\r\n  \"email\": \"ajay@test.com\",\r\n  \"password\": \"myname05\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:5000/users/signup",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "5000",
+									"path": [
+										"users",
+										"signup"
+									]
+								}
+							},
+							"status": "CREATED",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "Werkzeug/3.1.3 Python/3.11.9"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 22 Jan 2025 12:12:01 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "45"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"User created successfully\"\n}"
+						}
+					]
+				},
+				{
+					"name": "User LogIn",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"ajay@test.com\",\r\n  \"password\": \"myname05\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/users/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"users",
+								"login"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "demo",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"email\": \"ajay@test.com\",\r\n  \"password\": \"myname05\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5000/users/login",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"users",
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "Werkzeug/3.1.3 Python/3.11.9"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 22 Jan 2025 12:14:05 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "348"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"access_token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTczNzU0ODA0NSwianRpIjoiN2M0ODNlZDMtZDRmNS00MGQ2LTllZjEtNDg2ODNiNmY1Y2NjIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6MSwibmJmIjoxNzM3NTQ4MDQ1LCJjc3JmIjoiNmExYzAyM2UtYjczNS00NjA5LTk2MTItZDZhY2RhMDlhZTg3IiwiZXhwIjoxNzM3NTQ4OTQ1fQ.bhFOozN3M7ClMXaZj-kyWKVU9VZWqFr1ckpdFAfUAmQ\"\n}"
+						}
+					]
+				},
+				{
+					"name": "User Profile",
+					"request": {
+						"auth": {
+							"type": "jwt",
+							"jwt": [
+								{
+									"key": "algorithm",
+									"value": "HS256",
+									"type": "string"
+								},
+								{
+									"key": "isSecretBase64Encoded",
+									"value": false,
+									"type": "boolean"
+								},
+								{
+									"key": "payload",
+									"value": "{}",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								},
+								{
+									"key": "headerPrefix",
+									"value": "Bearer",
+									"type": "string"
+								},
+								{
+									"key": "queryParamKey",
+									"value": "token",
+									"type": "string"
+								},
+								{
+									"key": "header",
+									"value": "{}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTczNzU0OTc2NSwianRpIjoiNDE5NmZiMmEtNWIzMS00M2M5LTkwNjEtMjQ4NzI2YWRjMTRkIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjEiLCJuYmYiOjE3Mzc1NDk3NjUsImNzcmYiOiJkYWMzODQzYi05NjEzLTQxZDQtYjQxOS01OTY0MTVmNWJiODUiLCJleHAiOjE3Mzc1NTA2NjV9.gYXJq70Y6LR-JYWF5ik_Rd5m7bfoHi8crin4oTxAjRQ",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:5000/users/profile",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"users",
+								"profile"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "demo",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTczNzU0OTc2NSwianRpIjoiNDE5NmZiMmEtNWIzMS00M2M5LTkwNjEtMjQ4NzI2YWRjMTRkIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjEiLCJuYmYiOjE3Mzc1NDk3NjUsImNzcmYiOiJkYWMzODQzYi05NjEzLTQxZDQtYjQxOS01OTY0MTVmNWJiODUiLCJleHAiOjE3Mzc1NTA2NjV9.gYXJq70Y6LR-JYWF5ik_Rd5m7bfoHi8crin4oTxAjRQ",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:5000/users/profile",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"users",
+										"profile"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "Werkzeug/3.1.3 Python/3.11.9"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 22 Jan 2025 12:43:08 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "58"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"email\": \"ajay@test.com\",\n    \"username\": \"ajaysihag\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Products",
+			"item": [
+				{
+					"name": "Brands",
+					"item": [
+						{
+							"name": "Create Brand",
+							"request": {
+								"auth": {
+									"type": "jwt",
+									"jwt": [
+										{
+											"key": "algorithm",
+											"value": "HS256",
+											"type": "string"
+										},
+										{
+											"key": "isSecretBase64Encoded",
+											"value": false,
+											"type": "boolean"
+										},
+										{
+											"key": "payload",
+											"value": "{}",
+											"type": "string"
+										},
+										{
+											"key": "addTokenTo",
+											"value": "header",
+											"type": "string"
+										},
+										{
+											"key": "headerPrefix",
+											"value": "Bearer",
+											"type": "string"
+										},
+										{
+											"key": "queryParamKey",
+											"value": "token",
+											"type": "string"
+										},
+										{
+											"key": "header",
+											"value": "{}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTczNzYxMDExNiwianRpIjoiZWViM2VmOGEtMjYwOC00MjYyLWE4NmUtOGQ1MTMwOTU1YjcyIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjEiLCJuYmYiOjE3Mzc2MTAxMTYsImNzcmYiOiIwM2U0OTM1NS1hOWVmLTRhMzgtYTAxNi1jZjgxYTEwYzU2NjEiLCJleHAiOjE3Mzc2MTEwMTZ9.Ti1QN7FFefzzYYKrCoggcAulgYFrYpZgQQ0eXyO3Ulo",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\":\"Apple\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5000/products/brands",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"products",
+										"brands"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "demo",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTczNzYxMDExNiwianRpIjoiZWViM2VmOGEtMjYwOC00MjYyLWE4NmUtOGQ1MTMwOTU1YjcyIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjEiLCJuYmYiOjE3Mzc2MTAxMTYsImNzcmYiOiIwM2U0OTM1NS1hOWVmLTRhMzgtYTAxNi1jZjgxYTEwYzU2NjEiLCJleHAiOjE3Mzc2MTEwMTZ9.Ti1QN7FFefzzYYKrCoggcAulgYFrYpZgQQ0eXyO3Ulo",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"name\":\"Samsung\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:5000/products/brands",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "5000",
+											"path": [
+												"products",
+												"brands"
+											]
+										}
+									},
+									"status": "CREATED",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Server",
+											"value": "Werkzeug/3.1.3 Python/3.11.9"
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 23 Jan 2025 05:29:57 GMT"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Content-Length",
+											"value": "99"
+										},
+										{
+											"key": "Connection",
+											"value": "close"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"brand\": {\n        \"id\": 2,\n        \"name\": \"Samsung\"\n    },\n    \"message\": \"Brand created successfully\"\n}"
+								}
+							]
+						},
+						{
+							"name": "List Brands",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTczNzYxMDExNiwianRpIjoiZWViM2VmOGEtMjYwOC00MjYyLWE4NmUtOGQ1MTMwOTU1YjcyIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjEiLCJuYmYiOjE3Mzc2MTAxMTYsImNzcmYiOiIwM2U0OTM1NS1hOWVmLTRhMzgtYTAxNi1jZjgxYTEwYzU2NjEiLCJleHAiOjE3Mzc2MTEwMTZ9.Ti1QN7FFefzzYYKrCoggcAulgYFrYpZgQQ0eXyO3Ulo",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:5000/products/brands",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"products",
+										"brands"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "demo",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTczNzYxMDExNiwianRpIjoiZWViM2VmOGEtMjYwOC00MjYyLWE4NmUtOGQ1MTMwOTU1YjcyIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjEiLCJuYmYiOjE3Mzc2MTAxMTYsImNzcmYiOiIwM2U0OTM1NS1hOWVmLTRhMzgtYTAxNi1jZjgxYTEwYzU2NjEiLCJleHAiOjE3Mzc2MTEwMTZ9.Ti1QN7FFefzzYYKrCoggcAulgYFrYpZgQQ0eXyO3Ulo",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "http://localhost:5000/products/brands",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "5000",
+											"path": [
+												"products",
+												"brands"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Server",
+											"value": "Werkzeug/3.1.3 Python/3.11.9"
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 23 Jan 2025 05:33:45 GMT"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Content-Length",
+											"value": "89"
+										},
+										{
+											"key": "Connection",
+											"value": "close"
+										}
+									],
+									"cookie": [],
+									"body": "[\n    {\n        \"id\": 1,\n        \"name\": \"Apple\"\n    },\n    {\n        \"id\": 2,\n        \"name\": \"Samsung\"\n    }\n]"
+								}
+							]
+						},
+						{
+							"name": "Update Brand",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTczNzYxMDExNiwianRpIjoiZWViM2VmOGEtMjYwOC00MjYyLWE4NmUtOGQ1MTMwOTU1YjcyIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjEiLCJuYmYiOjE3Mzc2MTAxMTYsImNzcmYiOiIwM2U0OTM1NS1hOWVmLTRhMzgtYTAxNi1jZjgxYTEwYzU2NjEiLCJleHAiOjE3Mzc2MTEwMTZ9.Ti1QN7FFefzzYYKrCoggcAulgYFrYpZgQQ0eXyO3Ulo",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\" : \"Apple\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5000/products/brands/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"products",
+										"brands",
+										"1"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "demo",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTczNzYxMDExNiwianRpIjoiZWViM2VmOGEtMjYwOC00MjYyLWE4NmUtOGQ1MTMwOTU1YjcyIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjEiLCJuYmYiOjE3Mzc2MTAxMTYsImNzcmYiOiIwM2U0OTM1NS1hOWVmLTRhMzgtYTAxNi1jZjgxYTEwYzU2NjEiLCJleHAiOjE3Mzc2MTEwMTZ9.Ti1QN7FFefzzYYKrCoggcAulgYFrYpZgQQ0eXyO3Ulo",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"name\" : \"Apple\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:5000/products/brands/1",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "5000",
+											"path": [
+												"products",
+												"brands",
+												"1"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Server",
+											"value": "Werkzeug/3.1.3 Python/3.11.9"
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 23 Jan 2025 05:37:53 GMT"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Content-Length",
+											"value": "97"
+										},
+										{
+											"key": "Connection",
+											"value": "close"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"brand\": {\n        \"id\": 1,\n        \"name\": \"Apple\"\n    },\n    \"message\": \"Brand updated successfully\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Delete Brand",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTczNzYxMDExNiwianRpIjoiZWViM2VmOGEtMjYwOC00MjYyLWE4NmUtOGQ1MTMwOTU1YjcyIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjEiLCJuYmYiOjE3Mzc2MTAxMTYsImNzcmYiOiIwM2U0OTM1NS1hOWVmLTRhMzgtYTAxNi1jZjgxYTEwYzU2NjEiLCJleHAiOjE3Mzc2MTEwMTZ9.Ti1QN7FFefzzYYKrCoggcAulgYFrYpZgQQ0eXyO3Ulo",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:5000/products/brands/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"products",
+										"brands",
+										"1"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "demo",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTczNzYxMDExNiwianRpIjoiZWViM2VmOGEtMjYwOC00MjYyLWE4NmUtOGQ1MTMwOTU1YjcyIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjEiLCJuYmYiOjE3Mzc2MTAxMTYsImNzcmYiOiIwM2U0OTM1NS1hOWVmLTRhMzgtYTAxNi1jZjgxYTEwYzU2NjEiLCJleHAiOjE3Mzc2MTEwMTZ9.Ti1QN7FFefzzYYKrCoggcAulgYFrYpZgQQ0eXyO3Ulo",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "http://localhost:5000/products/brands/1",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "5000",
+											"path": [
+												"products",
+												"brands",
+												"1"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Server",
+											"value": "Werkzeug/3.1.3 Python/3.11.9"
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 23 Jan 2025 05:39:25 GMT"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Content-Length",
+											"value": "46"
+										},
+										{
+											"key": "Connection",
+											"value": "close"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"message\": \"Brand deleted successfully\"\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Categories",
+					"item": [
+						{
+							"name": "Create Category",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTczNzYxMTQ0NiwianRpIjoiZGQ3OTg3NTUtOGY2Ny00NDE2LTk1ZmItODViOGU5MTMxNWM4IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjEiLCJuYmYiOjE3Mzc2MTE0NDYsImNzcmYiOiIxOWExZmNjMy1lYmMyLTQwMDctOGIxNi01YWEwZmVhY2EyNzYiLCJleHAiOjE3Mzc2MTIzNDZ9.j82MxshC4q4fdsMVgJu3DGsDjv4Mg-uJ80l2NawynSc",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\" : \"Smartphones\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5000/products/categories",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"products",
+										"categories"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "demo",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTczNzYxMTQ0NiwianRpIjoiZGQ3OTg3NTUtOGY2Ny00NDE2LTk1ZmItODViOGU5MTMxNWM4IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjEiLCJuYmYiOjE3Mzc2MTE0NDYsImNzcmYiOiIxOWExZmNjMy1lYmMyLTQwMDctOGIxNi01YWEwZmVhY2EyNzYiLCJleHAiOjE3Mzc2MTIzNDZ9.j82MxshC4q4fdsMVgJu3DGsDjv4Mg-uJ80l2NawynSc",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"name\" : \"Smart Phones\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:5000/products/categories",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "5000",
+											"path": [
+												"products",
+												"categories"
+											]
+										}
+									},
+									"status": "CREATED",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Server",
+											"value": "Werkzeug/3.1.3 Python/3.11.9"
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 23 Jan 2025 05:51:26 GMT"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Content-Length",
+											"value": "110"
+										},
+										{
+											"key": "Connection",
+											"value": "close"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"category\": {\n        \"id\": 1,\n        \"naem\": \"Smart Phones\"\n    },\n    \"message\": \"Category created successfully\"\n}"
+								}
+							]
+						},
+						{
+							"name": "List Categories",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:5000/products/categories",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"products",
+										"categories"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "demo",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:5000/products/categories",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "5000",
+											"path": [
+												"products",
+												"categories"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Server",
+											"value": "Werkzeug/3.1.3 Python/3.11.9"
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 23 Jan 2025 05:52:31 GMT"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Content-Length",
+											"value": "96"
+										},
+										{
+											"key": "Connection",
+											"value": "close"
+										}
+									],
+									"cookie": [],
+									"body": "[\n    {\n        \"id\": 1,\n        \"name\": \"Smart Phones\"\n    },\n    {\n        \"id\": 2,\n        \"name\": \"Laptops\"\n    }\n]"
+								}
+							]
+						},
+						{
+							"name": "Update Category",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTczNzYxMTQ0NiwianRpIjoiZGQ3OTg3NTUtOGY2Ny00NDE2LTk1ZmItODViOGU5MTMxNWM4IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjEiLCJuYmYiOjE3Mzc2MTE0NDYsImNzcmYiOiIxOWExZmNjMy1lYmMyLTQwMDctOGIxNi01YWEwZmVhY2EyNzYiLCJleHAiOjE3Mzc2MTIzNDZ9.j82MxshC4q4fdsMVgJu3DGsDjv4Mg-uJ80l2NawynSc",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\" : \"Smartphones\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5000/products/categories/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"products",
+										"categories",
+										"1"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "demo",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTczNzYxMTQ0NiwianRpIjoiZGQ3OTg3NTUtOGY2Ny00NDE2LTk1ZmItODViOGU5MTMxNWM4IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjEiLCJuYmYiOjE3Mzc2MTE0NDYsImNzcmYiOiIxOWExZmNjMy1lYmMyLTQwMDctOGIxNi01YWEwZmVhY2EyNzYiLCJleHAiOjE3Mzc2MTIzNDZ9.j82MxshC4q4fdsMVgJu3DGsDjv4Mg-uJ80l2NawynSc",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"name\" : \"Smartphones\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:5000/products/categories/1",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "5000",
+											"path": [
+												"products",
+												"categories",
+												"1"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Server",
+											"value": "Werkzeug/3.1.3 Python/3.11.9"
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 23 Jan 2025 05:53:46 GMT"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Content-Length",
+											"value": "109"
+										},
+										{
+											"key": "Connection",
+											"value": "close"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"category\": {\n        \"id\": 1,\n        \"name\": \"Smartphones\"\n    },\n    \"message\": \"Category updated successfully\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Delete Category",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTczNzYxMTQ0NiwianRpIjoiZGQ3OTg3NTUtOGY2Ny00NDE2LTk1ZmItODViOGU5MTMxNWM4IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjEiLCJuYmYiOjE3Mzc2MTE0NDYsImNzcmYiOiIxOWExZmNjMy1lYmMyLTQwMDctOGIxNi01YWEwZmVhY2EyNzYiLCJleHAiOjE3Mzc2MTIzNDZ9.j82MxshC4q4fdsMVgJu3DGsDjv4Mg-uJ80l2NawynSc",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:5000/products/categories/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"products",
+										"categories",
+										"1"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "demo",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTczNzYxMTQ0NiwianRpIjoiZGQ3OTg3NTUtOGY2Ny00NDE2LTk1ZmItODViOGU5MTMxNWM4IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjEiLCJuYmYiOjE3Mzc2MTE0NDYsImNzcmYiOiIxOWExZmNjMy1lYmMyLTQwMDctOGIxNi01YWEwZmVhY2EyNzYiLCJleHAiOjE3Mzc2MTIzNDZ9.j82MxshC4q4fdsMVgJu3DGsDjv4Mg-uJ80l2NawynSc",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "http://localhost:5000/products/categories/1",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "5000",
+											"path": [
+												"products",
+												"categories",
+												"1"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Server",
+											"value": "Werkzeug/3.1.3 Python/3.11.9"
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 23 Jan 2025 05:55:02 GMT"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Content-Length",
+											"value": "49"
+										},
+										{
+											"key": "Connection",
+											"value": "close"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"message\": \"Category deleted successfully\"\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Products",
+					"item": [
+						{
+							"name": "Create Product",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTczNzYxMjU5NywianRpIjoiZTU0MTA4MmUtNGI5Mi00ZjhiLThkYWQtYjUzNjkxNGFhYzkzIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjEiLCJuYmYiOjE3Mzc2MTI1OTcsImNzcmYiOiIyY2U5Y2MzOS1mNjYzLTQ2YTEtOGVkYS0yZDBkYjljYzYyY2YiLCJleHAiOjE3Mzc2MTM0OTd9.e1Mr3j2TYaBw79VhrY_or55CXlSbKUvBv438qApKTIw",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\" : \"Iphone 15 Pro\",\r\n    \"brand_id\" : 3,\r\n    \"category_id\" : 3\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5000/products",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"products"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "demo",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTczNzYxMjU5NywianRpIjoiZTU0MTA4MmUtNGI5Mi00ZjhiLThkYWQtYjUzNjkxNGFhYzkzIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjEiLCJuYmYiOjE3Mzc2MTI1OTcsImNzcmYiOiIyY2U5Y2MzOS1mNjYzLTQ2YTEtOGVkYS0yZDBkYjljYzYyY2YiLCJleHAiOjE3Mzc2MTM0OTd9.e1Mr3j2TYaBw79VhrY_or55CXlSbKUvBv438qApKTIw",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"name\" : \"Iphone 15 Pro\",\r\n    \"brand_id\" : 3,\r\n    \"category_id\" : 3\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:5000/products",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "5000",
+											"path": [
+												"products"
+											]
+										}
+									},
+									"status": "CREATED",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Server",
+											"value": "Werkzeug/3.1.3 Python/3.11.9"
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 23 Jan 2025 06:19:58 GMT"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Content-Length",
+											"value": "162"
+										},
+										{
+											"key": "Connection",
+											"value": "close"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"Product\": {\n        \"brand\": \"Apple\",\n        \"category\": \"Smartphones\",\n        \"id\": 2,\n        \"name\": \"Iphone 15 Pro\"\n    },\n    \"message\": \"Product created successfully\"\n}"
+								}
+							]
+						},
+						{
+							"name": "List Products",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:5000/products",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"products"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "demo",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:5000/products",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "5000",
+											"path": [
+												"products"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Server",
+											"value": "Werkzeug/3.1.3 Python/3.11.9"
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 23 Jan 2025 06:21:32 GMT"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Content-Length",
+											"value": "210"
+										},
+										{
+											"key": "Connection",
+											"value": "close"
+										}
+									],
+									"cookie": [],
+									"body": "[\n    {\n        \"brand\": \"Apple\",\n        \"category\": \"Smartphones\",\n        \"id\": 1,\n        \"name\": \"Iphone 15 Plus\"\n    },\n    {\n        \"brand\": \"Apple\",\n        \"category\": \"Smartphones\",\n        \"id\": 2,\n        \"name\": \"Iphone 15 Pro\"\n    }\n]"
+								}
+							]
+						},
+						{
+							"name": "Update Product",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTczNzYxMzU3MywianRpIjoiZjBhZGU0YTktOWFkMi00M2MxLWIyYTMtNWZhMTA1ZjJiY2ZkIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjEiLCJuYmYiOjE3Mzc2MTM1NzMsImNzcmYiOiI3NmI2NThiNy00ZGYyLTQ3NTAtOGM2Ni0xMjg1ZDdiZDQ0ZTAiLCJleHAiOjE3Mzc2MTQ0NzN9.45XyYX9AvTGK3CVMmSyTWgfeOx0yRt-31EI1Mcnkc64",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\" : \"Macbook Air M1\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5000/products/3",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"products",
+										"3"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "demo",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTczNzYxMzU3MywianRpIjoiZjBhZGU0YTktOWFkMi00M2MxLWIyYTMtNWZhMTA1ZjJiY2ZkIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjEiLCJuYmYiOjE3Mzc2MTM1NzMsImNzcmYiOiI3NmI2NThiNy00ZGYyLTQ3NTAtOGM2Ni0xMjg1ZDdiZDQ0ZTAiLCJleHAiOjE3Mzc2MTQ0NzN9.45XyYX9AvTGK3CVMmSyTWgfeOx0yRt-31EI1Mcnkc64",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"name\" : \"Macbook Air M1\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:5000/products/3",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "5000",
+											"path": [
+												"products",
+												"3"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Server",
+											"value": "Werkzeug/3.1.3 Python/3.11.9"
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 23 Jan 2025 06:30:50 GMT"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Content-Length",
+											"value": "159"
+										},
+										{
+											"key": "Connection",
+											"value": "close"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"message\": \"Product updated successfully\",\n    \"product\": {\n        \"brand\": \"Apple\",\n        \"category\": \"Laptops\",\n        \"id\": 3,\n        \"name\": \"Macbook Air M1\"\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "Delete Product",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTczNzYxMzU3MywianRpIjoiZjBhZGU0YTktOWFkMi00M2MxLWIyYTMtNWZhMTA1ZjJiY2ZkIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjEiLCJuYmYiOjE3Mzc2MTM1NzMsImNzcmYiOiI3NmI2NThiNy00ZGYyLTQ3NTAtOGM2Ni0xMjg1ZDdiZDQ0ZTAiLCJleHAiOjE3Mzc2MTQ0NzN9.45XyYX9AvTGK3CVMmSyTWgfeOx0yRt-31EI1Mcnkc64",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:5000/products/3",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"products",
+										"3"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "demo",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTczNzYxMzU3MywianRpIjoiZjBhZGU0YTktOWFkMi00M2MxLWIyYTMtNWZhMTA1ZjJiY2ZkIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjEiLCJuYmYiOjE3Mzc2MTM1NzMsImNzcmYiOiI3NmI2NThiNy00ZGYyLTQ3NTAtOGM2Ni0xMjg1ZDdiZDQ0ZTAiLCJleHAiOjE3Mzc2MTQ0NzN9.45XyYX9AvTGK3CVMmSyTWgfeOx0yRt-31EI1Mcnkc64",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "http://localhost:5000/products/3",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "5000",
+											"path": [
+												"products",
+												"3"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Server",
+											"value": "Werkzeug/3.1.3 Python/3.11.9"
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 23 Jan 2025 06:29:44 GMT"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Content-Length",
+											"value": "48"
+										},
+										{
+											"key": "Connection",
+											"value": "close"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"message\": \"Product deleted successfully\"\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Product Variants",
+					"item": [
+						{
+							"name": "Create Product Variants",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTczNzYxNTUzMCwianRpIjoiZjYzZmU0MDUtY2VjYi00OGQ2LWExMjYtY2E5OTA2ZDRlNjE4IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjEiLCJuYmYiOjE3Mzc2MTU1MzAsImNzcmYiOiJkZTE4NzFlNi1lNGFiLTQwZGItOTU2MC1lMTdjN2FiOGJmMjUiLCJleHAiOjE3Mzc2MTY0MzB9.I50k9kZDf_oMQ8OvObzqCs2Xe_tYnmFBSled7PzzNkk",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"product_id\" : 1,\r\n    \"quantity\" : 200,\r\n    \"price\" : 65999,\r\n    \"description\" : \"iPhone 15 Plus with 128 GB Storage and color is Green\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5000/products/product_variants",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"products",
+										"product_variants"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "demo",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTczNzYxNTUzMCwianRpIjoiZjYzZmU0MDUtY2VjYi00OGQ2LWExMjYtY2E5OTA2ZDRlNjE4IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjEiLCJuYmYiOjE3Mzc2MTU1MzAsImNzcmYiOiJkZTE4NzFlNi1lNGFiLTQwZGItOTU2MC1lMTdjN2FiOGJmMjUiLCJleHAiOjE3Mzc2MTY0MzB9.I50k9kZDf_oMQ8OvObzqCs2Xe_tYnmFBSled7PzzNkk",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"product_id\" : 1,\r\n    \"quantity\" : 200,\r\n    \"price\" : 64999,\r\n    \"description\" : \"iPhone 15 Plus with 128 GB Storage and color is Green\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:5000/products/product_variants",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "5000",
+											"path": [
+												"products",
+												"product_variants"
+											]
+										}
+									},
+									"status": "CREATED",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Server",
+											"value": "Werkzeug/3.1.3 Python/3.11.9"
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 23 Jan 2025 06:59:10 GMT"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Content-Length",
+											"value": "317"
+										},
+										{
+											"key": "Connection",
+											"value": "close"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"message\": \"Product variant created successfully\",\n    \"product_variant\": {\n        \"brand\": \"Apple\",\n        \"category\": \"Smartphones\",\n        \"description\": \"iPhone 15 Plus with 128 GB Storage and color is Green\",\n        \"id\": 1,\n        \"name\": \"Iphone 15 Plus\",\n        \"price\": 64999,\n        \"quantity\": 200,\n        \"rating\": 0\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "List Product Variants",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:5000/products/product_variants",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"products",
+										"product_variants"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "demo",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:5000/products/product_variants",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "5000",
+											"path": [
+												"products",
+												"product_variants"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Server",
+											"value": "Werkzeug/3.1.3 Python/3.11.9"
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 23 Jan 2025 07:05:51 GMT"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Content-Length",
+											"value": "487"
+										},
+										{
+											"key": "Connection",
+											"value": "close"
+										}
+									],
+									"cookie": [],
+									"body": "[\n    {\n        \"brand\": \"Apple\",\n        \"category\": \"Smartphones\",\n        \"description\": \"iPhone 15 Plus with 128 GB Storage and color is Green\",\n        \"id\": 1,\n        \"name\": \"Iphone 15 Plus\",\n        \"price\": 64999,\n        \"quantity\": 200,\n        \"rating\": 0\n    },\n    {\n        \"brand\": \"Apple\",\n        \"category\": \"Smartphones\",\n        \"description\": \"iPhone 15 Plus with 256 GB Storage and color is Black\",\n        \"id\": 2,\n        \"name\": \"Iphone 15 Plus\",\n        \"price\": 74999,\n        \"quantity\": 150,\n        \"rating\": 0\n    }\n]"
+								}
+							]
+						},
+						{
+							"name": "Update Product Variant",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTczNzYxNjI2MSwianRpIjoiNzY5NjhkZjItZjE0OS00ODgzLWFkNGMtYmFkMGRiNWRjMzcwIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjEiLCJuYmYiOjE3Mzc2MTYyNjEsImNzcmYiOiJhYzBlYjQ2Yi1jNzVlLTQ1NTItYWViNC1iZWI2MzY0ODg0YzYiLCJleHAiOjE3Mzc2MTcxNjF9.KlZ2XryY123neWRRlYT-4dDBdiibm4gMMO1b7EnKyCI",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"price\" : \"62999\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5000/products/product_variants/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"products",
+										"product_variants",
+										"1"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "demo",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTczNzYxNjI2MSwianRpIjoiNzY5NjhkZjItZjE0OS00ODgzLWFkNGMtYmFkMGRiNWRjMzcwIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjEiLCJuYmYiOjE3Mzc2MTYyNjEsImNzcmYiOiJhYzBlYjQ2Yi1jNzVlLTQ1NTItYWViNC1iZWI2MzY0ODg0YzYiLCJleHAiOjE3Mzc2MTcxNjF9.KlZ2XryY123neWRRlYT-4dDBdiibm4gMMO1b7EnKyCI",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"price\" : \"62999\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "http://localhost:5000/products/product_variants/1",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "5000",
+											"path": [
+												"products",
+												"product_variants",
+												"1"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Server",
+											"value": "Werkzeug/3.1.3 Python/3.11.9"
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 23 Jan 2025 07:11:22 GMT"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Content-Length",
+											"value": "309"
+										},
+										{
+											"key": "Connection",
+											"value": "close"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"details\": {\n        \"brand\": \"Apple\",\n        \"category\": \"Smartphones\",\n        \"description\": \"iPhone 15 Plus with 128 GB Storage and color is Green\",\n        \"id\": 1,\n        \"name\": \"Iphone 15 Plus\",\n        \"price\": 62999,\n        \"quantity\": 200,\n        \"rating\": 0\n    },\n    \"message\": \"Product variant updated successfully\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Delete Product Variant",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTczNzYxNjI2MSwianRpIjoiNzY5NjhkZjItZjE0OS00ODgzLWFkNGMtYmFkMGRiNWRjMzcwIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjEiLCJuYmYiOjE3Mzc2MTYyNjEsImNzcmYiOiJhYzBlYjQ2Yi1jNzVlLTQ1NTItYWViNC1iZWI2MzY0ODg0YzYiLCJleHAiOjE3Mzc2MTcxNjF9.KlZ2XryY123neWRRlYT-4dDBdiibm4gMMO1b7EnKyCI",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:5000/products/product_variants/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"products",
+										"product_variants",
+										"1"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "demo",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTczNzYxNjI2MSwianRpIjoiNzY5NjhkZjItZjE0OS00ODgzLWFkNGMtYmFkMGRiNWRjMzcwIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjEiLCJuYmYiOjE3Mzc2MTYyNjEsImNzcmYiOiJhYzBlYjQ2Yi1jNzVlLTQ1NTItYWViNC1iZWI2MzY0ODg0YzYiLCJleHAiOjE3Mzc2MTcxNjF9.KlZ2XryY123neWRRlYT-4dDBdiibm4gMMO1b7EnKyCI",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "http://localhost:5000/products/product_variants/1",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "5000",
+											"path": [
+												"products",
+												"product_variants",
+												"1"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Server",
+											"value": "Werkzeug/3.1.3 Python/3.11.9"
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 23 Jan 2025 07:12:30 GMT"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Content-Length",
+											"value": "56"
+										},
+										{
+											"key": "Connection",
+											"value": "close"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"message\": \"Product variant deleted successfully\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Sort Product Variants",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:5000/products/product_variants?sort_by=quantity&order=asc",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"products",
+										"product_variants"
+									],
+									"query": [
+										{
+											"key": "sort_by",
+											"value": "quantity"
+										},
+										{
+											"key": "order",
+											"value": "asc"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "demo",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:5000/products/product_variants?sort_by=quantity&order=asc",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "5000",
+											"path": [
+												"products",
+												"product_variants"
+											],
+											"query": [
+												{
+													"key": "sort_by",
+													"value": "quantity"
+												},
+												{
+													"key": "order",
+													"value": "asc"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Server",
+											"value": "Werkzeug/3.1.3 Python/3.11.9"
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 23 Jan 2025 10:30:58 GMT"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Content-Length",
+											"value": "487"
+										},
+										{
+											"key": "Connection",
+											"value": "close"
+										}
+									],
+									"cookie": [],
+									"body": "[\n    {\n        \"brand\": \"Apple\",\n        \"category\": \"Smartphones\",\n        \"description\": \"iPhone 15 Plus with 256 GB Storage and color is Black\",\n        \"id\": 2,\n        \"name\": \"Iphone 15 Plus\",\n        \"price\": 74999,\n        \"quantity\": 150,\n        \"rating\": 0\n    },\n    {\n        \"brand\": \"Apple\",\n        \"category\": \"Smartphones\",\n        \"description\": \"iPhone 15 Plus with 128 GB Storage and color is Green\",\n        \"id\": 3,\n        \"name\": \"Iphone 15 Plus\",\n        \"price\": 65999,\n        \"quantity\": 200,\n        \"rating\": 0\n    }\n]"
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Cart",
+			"item": [
+				{
+					"name": "Create Cart",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTczNzYxODg0MCwianRpIjoiMmRiMzg3OTYtNzgxMC00MDhjLTgyNTQtZGE3YzNkZjliYmUxIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjEiLCJuYmYiOjE3Mzc2MTg4NDAsImNzcmYiOiIxMDk5YzU1Ny02M2NmLTRjOGMtYTY4ZS0wNjc4YWFjOTA4MDgiLCJleHAiOjE3Mzc2MTk3NDB9.-EGw2V8mzF9UcgTn1cbqVwuMIGhZc3te71j0WVI-umw",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:5000/users/carts",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"users",
+								"carts"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Demo",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTczNzYxODg0MCwianRpIjoiMmRiMzg3OTYtNzgxMC00MDhjLTgyNTQtZGE3YzNkZjliYmUxIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjEiLCJuYmYiOjE3Mzc2MTg4NDAsImNzcmYiOiIxMDk5YzU1Ny02M2NmLTRjOGMtYTY4ZS0wNjc4YWFjOTA4MDgiLCJleHAiOjE3Mzc2MTk3NDB9.-EGw2V8mzF9UcgTn1cbqVwuMIGhZc3te71j0WVI-umw",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:5000/users/carts",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"users",
+										"carts"
+									]
+								}
+							},
+							"status": "BAD REQUEST",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "Werkzeug/3.1.3 Python/3.11.9"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 23 Jan 2025 07:55:07 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "55"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"A cart already exists for this user\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Add Items to Cart",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTczNzYyNDk1NSwianRpIjoiZWUzNjIzNmEtYTZmMC00NTk1LWExN2QtNTJlODg0ZDZjNzljIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjEiLCJuYmYiOjE3Mzc2MjQ5NTUsImNzcmYiOiJmY2Q5Yzk5OS01NWMzLTQwODYtOTJlMi1hZWY3MzFiYzExMjciLCJleHAiOjE3Mzc2MjU4NTV9.WhYVmEbQmY2dciMu--dZuf6z3bXE6h0KAlIzX2WhdNc",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"product_variant_id\" : 2,\r\n    \"quantity\" : 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/users/cart_items",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"users",
+								"cart_items"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "demo",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTczNzYyMjc5MSwianRpIjoiMWQ5ZjIzN2ItNTc3Ny00ZGEwLTliYjMtM2YzN2RiZmQ2NzQ5IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjEiLCJuYmYiOjE3Mzc2MjI3OTEsImNzcmYiOiI4MjQ0MjQyZC0zZGQ5LTQxMmEtOTIwOS0zOGFlNmExYjY3NTAiLCJleHAiOjE3Mzc2MjM2OTF9.Jz2n0wuGBxY6esJd-WYY30rqwZsOMimlf54VMIepgBo",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"product_variant_id\" : 3,\r\n    \"quantity\" : 1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5000/users/cart_items",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"users",
+										"cart_items"
+									]
+								}
+							},
+							"status": "CREATED",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "Werkzeug/3.1.3 Python/3.11.9"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 23 Jan 2025 09:02:16 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "133"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"details\": {\n        \"name\": \"Iphone 15 Plus\",\n        \"price\": 65999,\n        \"quantity\": 1\n    },\n    \"message\": \"Item added successfully\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Cart Items",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTczNzYyNDMzMiwianRpIjoiMWZlM2U4MDQtMjhmZS00YjI5LWEzMWEtYmI3ODA1ZTJiYzlmIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjEiLCJuYmYiOjE3Mzc2MjQzMzIsImNzcmYiOiI1NmMyYWZhNS1iNWEyLTRlZGEtOTQyYS01YTU3ZDA5NWJiOWMiLCJleHAiOjE3Mzc2MjUyMzJ9.lelyJbragL46HdnhhC34U6CMzR47EeplxXri_d8yQbA",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:5000/users/cart_items",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"users",
+								"cart_items"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "demo",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTczNzYyMzEyNSwianRpIjoiYWM4Y2VhMmQtOTAwYy00OTcxLTkxZTMtYzVkM2E4YTA0MWQ0IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjEiLCJuYmYiOjE3Mzc2MjMxMjUsImNzcmYiOiJkMDJiYjcwOS1jZDNkLTRmNmItOTljNi0zNzIxZjRiOTEyYjMiLCJleHAiOjE3Mzc2MjQwMjV9.MdH4waIeFphl_IrFLJd4j1GfZCvZCzsq4yB09RbFHyk",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:5000/users/cart_items",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"users",
+										"cart_items"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "Werkzeug/3.1.3 Python/3.11.9"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 23 Jan 2025 09:19:51 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "187"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 2,\n        \"name\": \"Iphone 15 Plus\",\n        \"price\": 74999,\n        \"quantity\": 1\n    },\n    {\n        \"id\": 3,\n        \"name\": \"Iphone 15 Plus\",\n        \"price\": 65999,\n        \"quantity\": 1\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Update Cart Item Quantity",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTczNzYyNDMzMiwianRpIjoiMWZlM2U4MDQtMjhmZS00YjI5LWEzMWEtYmI3ODA1ZTJiYzlmIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjEiLCJuYmYiOjE3Mzc2MjQzMzIsImNzcmYiOiI1NmMyYWZhNS1iNWEyLTRlZGEtOTQyYS01YTU3ZDA5NWJiOWMiLCJleHAiOjE3Mzc2MjUyMzJ9.lelyJbragL46HdnhhC34U6CMzR47EeplxXri_d8yQbA",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"quantity\" : 10\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/users/cart_items/5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"users",
+								"cart_items",
+								"5"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "demo",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTczNzYyNDMzMiwianRpIjoiMWZlM2U4MDQtMjhmZS00YjI5LWEzMWEtYmI3ODA1ZTJiYzlmIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjEiLCJuYmYiOjE3Mzc2MjQzMzIsImNzcmYiOiI1NmMyYWZhNS1iNWEyLTRlZGEtOTQyYS01YTU3ZDA5NWJiOWMiLCJleHAiOjE3Mzc2MjUyMzJ9.lelyJbragL46HdnhhC34U6CMzR47EeplxXri_d8yQbA",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"quantity\" : 10\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5000/users/cart_items/2",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"users",
+										"cart_items",
+										"2"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "Werkzeug/3.1.3 Python/3.11.9"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 23 Jan 2025 09:26:03 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "141"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"details\": {\n        \"id\": 2,\n        \"name\": \"Iphone 15 Plus\",\n        \"quantity\": 10\n    },\n    \"message\": \"Cart item quantity updated successfully\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Remove Cart Item",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTczNzYyNDk1NSwianRpIjoiZWUzNjIzNmEtYTZmMC00NTk1LWExN2QtNTJlODg0ZDZjNzljIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjEiLCJuYmYiOjE3Mzc2MjQ5NTUsImNzcmYiOiJmY2Q5Yzk5OS01NWMzLTQwODYtOTJlMi1hZWY3MzFiYzExMjciLCJleHAiOjE3Mzc2MjU4NTV9.WhYVmEbQmY2dciMu--dZuf6z3bXE6h0KAlIzX2WhdNc",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:5000/users/cart_items/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"users",
+								"cart_items",
+								"2"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "demo",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTczNzYyNDk1NSwianRpIjoiZWUzNjIzNmEtYTZmMC00NTk1LWExN2QtNTJlODg0ZDZjNzljIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjEiLCJuYmYiOjE3Mzc2MjQ5NTUsImNzcmYiOiJmY2Q5Yzk5OS01NWMzLTQwODYtOTJlMi1hZWY3MzFiYzExMjciLCJleHAiOjE3Mzc2MjU4NTV9.WhYVmEbQmY2dciMu--dZuf6z3bXE6h0KAlIzX2WhdNc",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:5000/users/cart_items/2",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"users",
+										"cart_items",
+										"2"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "Werkzeug/3.1.3 Python/3.11.9"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 23 Jan 2025 09:36:31 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "50"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Cart item deleted successfully\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Orders",
+			"item": [
+				{
+					"name": "CheckOut",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTczNzYzNTAyMywianRpIjoiMDZmZDNlYmUtNmE3Zi00NDAwLWJmOWUtMmQwNTU3NjgwOWMwIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjEiLCJuYmYiOjE3Mzc2MzUwMjMsImNzcmYiOiI0YWE2ZmI4Mi1kNTczLTRjMWQtOWYxMS1hZGQwZjk0MjA4MDYiLCJleHAiOjE3Mzc2MzU5MjN9.ljT7Rak8KAA_kuWge4jN8rpg7buWdMKVAelRy9UDQmE",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/orders/checkout",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"orders",
+								"checkout"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "demo",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTczNzYzNTAyMywianRpIjoiMDZmZDNlYmUtNmE3Zi00NDAwLWJmOWUtMmQwNTU3NjgwOWMwIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjEiLCJuYmYiOjE3Mzc2MzUwMjMsImNzcmYiOiI0YWE2ZmI4Mi1kNTczLTRjMWQtOWYxMS1hZGQwZjk0MjA4MDYiLCJleHAiOjE3Mzc2MzU5MjN9.ljT7Rak8KAA_kuWge4jN8rpg7buWdMKVAelRy9UDQmE",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5000/orders/checkout",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"orders",
+										"checkout"
+									]
+								}
+							},
+							"status": "CREATED",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "Werkzeug/3.1.3 Python/3.11.9"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 23 Jan 2025 12:35:39 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "387"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"details\": {\n        \"order_id\": 2,\n        \"order_items\": [\n            {\n                \"item_name\": \"Iphone 15 Plus\",\n                \"item_price\": 74999,\n                \"order_item_id\": 3\n            },\n            {\n                \"item_name\": \"Iphone 15 Plus\",\n                \"item_price\": 65999,\n                \"order_item_id\": 4\n            }\n        ],\n        \"price\": 404994,\n        \"status\": \"Pending\"\n    },\n    \"message\": \"Order created successfully\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Payment",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTczNzYzNTAyMywianRpIjoiMDZmZDNlYmUtNmE3Zi00NDAwLWJmOWUtMmQwNTU3NjgwOWMwIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjEiLCJuYmYiOjE3Mzc2MzUwMjMsImNzcmYiOiI0YWE2ZmI4Mi1kNTczLTRjMWQtOWYxMS1hZGQwZjk0MjA4MDYiLCJleHAiOjE3Mzc2MzU5MjN9.ljT7Rak8KAA_kuWge4jN8rpg7buWdMKVAelRy9UDQmE",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"order_id\" : 1,\r\n    \"payment_method\" : \"UPI\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/orders/payment",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"orders",
+								"payment"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "demo",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTczNzYzNTAyMywianRpIjoiMDZmZDNlYmUtNmE3Zi00NDAwLWJmOWUtMmQwNTU3NjgwOWMwIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjEiLCJuYmYiOjE3Mzc2MzUwMjMsImNzcmYiOiI0YWE2ZmI4Mi1kNTczLTRjMWQtOWYxMS1hZGQwZjk0MjA4MDYiLCJleHAiOjE3Mzc2MzU5MjN9.ljT7Rak8KAA_kuWge4jN8rpg7buWdMKVAelRy9UDQmE",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"order_id\" : 1,\r\n    \"payment_method\" : \"UPI\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5000/orders/payment",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"orders",
+										"payment"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "Werkzeug/3.1.3 Python/3.11.9"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 23 Jan 2025 12:24:09 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "133"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"details\": {\n        \"amount\": 404994,\n        \"id\": 1,\n        \"status\": \"Completed\"\n    },\n    \"message\": \"Payment processed successfully\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Coupons",
+			"item": [
+				{
+					"name": "Create Coupon",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTczNzYzNjQyMiwianRpIjoiOGJlYmI0NzgtNGQ5YS00NWY3LTliODUtMGQzNGMwODBhODM0IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjEiLCJuYmYiOjE3Mzc2MzY0MjIsImNzcmYiOiI3YmM3YTBhZi1kODllLTQ1M2MtYTE5MS0yYTA2OTcyMzFlMmQiLCJleHAiOjE3Mzc2MzczMjJ9.Gr0OXw7cF-kvHfWuxbP4pLxL47cZfmj8GIR3LeDF1BQ",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"code\" : \"flat15\",\r\n    \"discount\" : 15\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/products/coupons",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"products",
+								"coupons"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "demo",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTczNzYzNjQyMiwianRpIjoiOGJlYmI0NzgtNGQ5YS00NWY3LTliODUtMGQzNGMwODBhODM0IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjEiLCJuYmYiOjE3Mzc2MzY0MjIsImNzcmYiOiI3YmM3YTBhZi1kODllLTQ1M2MtYTE5MS0yYTA2OTcyMzFlMmQiLCJleHAiOjE3Mzc2MzczMjJ9.Gr0OXw7cF-kvHfWuxbP4pLxL47cZfmj8GIR3LeDF1BQ",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"code\" : \"flat15\",\r\n    \"discount\" : 15\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5000/products/coupons",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"products",
+										"coupons"
+									]
+								}
+							},
+							"status": "CREATED",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "Werkzeug/3.1.3 Python/3.11.9"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 23 Jan 2025 12:48:09 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "150"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"details\": {\n        \"active\": true,\n        \"code\": \"flat15\",\n        \"coupon_id\": 1,\n        \"discount\": 15\n    },\n    \"message\": \"Coupon created successfully\"\n}"
+						}
+					]
+				}
+			]
+		}
+	]
+}

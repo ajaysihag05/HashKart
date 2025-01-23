@@ -18,10 +18,6 @@ class OrderItem(db.Model):
     quantity = db.Column(db.Integer, nullable=False)
     price = db.Column(db.Float, nullable=False)
 
-    __table_args__ = (
-        UniqueConstraint('product_variant_id', name='unique_product_variant_in_a_order'),
-    )
-
 
 class Payment(db.Model):
     id = db.Column(db.Integer, primary_key=True)

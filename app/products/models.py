@@ -50,6 +50,7 @@ class ProductVariant(db.Model):
     description = db.Column(db.Text, nullable=False)
     price = db.Column(db.Float, nullable=False)
     cart_item = db.relationship("CartItem", backref="product_variant", lazy=True)
+    order_item = db.relationship("OrderItem",backref="product_variant", lazy=True)
 
 class ProductVariantProperty(db.Model):
     id = db.Column(db.Integer, primary_key=True)

@@ -35,6 +35,8 @@ flask db migrate -m "initial migrations"
 flask db upgrade
 ```
 
+#### 4. Use the sample.env to create .env file in project directory
+
 #### 4. Run the Project 
 ```bash
 python run.py

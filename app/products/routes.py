@@ -2,6 +2,7 @@ from flask import Blueprint, request, jsonify
 from app import db
 from app.products.models import Brand, Category, Product, ProductVariant, Coupon
 from flask_jwt_extended import jwt_required
+from sqlalchemy.orm import joinedload
 
 products_bp = Blueprint('products', __name__)
 
@@ -240,7 +241,30 @@ def create_product_variant():
 @products_bp.route('/product_variants', methods=['GET'])
 def get_product_variants():
     try:
-        product_variants = ProductVariant.query.all()
+        sort_by = request.args.get('sort_by', 'name')
+        order = request.args.get('order', 'asc')
+
+        valid_sort_fields = ['name', 'rating', 'price', 'quantity']
+        if sort_by not in valid_sort_fields:
+            return jsonify({"error": "Invalid sort field"}), 400
+
+        valid_order = ['asc', 'desc']
+        if order not in valid_order:
+            return jsonify({"error": "Invalid order"}), 400
+        print(1111111)        
+        query = db.session.query(ProductVariant).join(Product).options(joinedload(ProductVariant.product))
+
+        if sort_by == 'name':
+            sort_column = Product.name
+        else:
+            sort_column = getattr(ProductVariant, sort_by)
+
+        if order == 'asc':
+            product_variants = query.order_by(sort_column.asc()).all()
+        else:
+            product_variants = query.order_by(sort_column.desc()).all()
+
+        print(222222)
         product_variants_list = [{
             "id" : product_variant.id,
             "name" : product_variant.product.name,
@@ -296,9 +320,8 @@ def delete_product_variant(id):
     except Exception as e:
         db.session.rollback()
         return jsonify({"error": str(e)}), 400
+    
 
-
-# CRUD for Coupon
 @products_bp.route('/coupons', methods=['POST'])
 def create_coupon():
     try:

@@ -323,17 +323,23 @@ def delete_product_variant(id):
     
 
 @products_bp.route('/coupons', methods=['POST'])
+@jwt_required()
 def create_coupon():
     try:
         data = request.get_json()
         coupon = Coupon(
             code=data['code'],
-            discount=data['discount'],
-            active=data['active']
+            discount=data['discount'],\
         )
         db.session.add(coupon)
         db.session.commit()
-        return jsonify({"message": "Coupon created successfully"}), 201
+        return jsonify({"message": "Coupon created successfully",
+                        "details" : {
+                            "coupon_id" : coupon.id,
+                            "code" : coupon.code,
+                            "discount" : coupon.discount,
+                            "active" : coupon.active
+                        }}), 201
     except Exception as e:
         db.session.rollback()
         return jsonify({"error": str(e)}), 400
@@ -344,29 +350,4 @@ def get_coupons():
         coupons = Coupon.query.all()
         return jsonify([{"id": coupon.id, "code": coupon.code} for coupon in coupons]), 200
     except Exception as e:
-        return jsonify({"error": str(e)}), 400
-
-@products_bp.route('/coupons/<int:id>', methods=['PUT'])
-def update_coupon(id):
-    try:
-        data = request.get_json()
-        coupon = Coupon.query.get_or_404(id)
-        coupon.code = data['code']
-        coupon.discount = data['discount']
-        coupon.active = data['active']
-        db.session.commit()
-        return jsonify({"message": "Coupon updated successfully"}), 200
-    except Exception as e:
-        db.session.rollback()
-        return jsonify({"error": str(e)}), 400
-
-@products_bp.route('/coupons/<int:id>', methods=['DELETE'])
-def delete_coupon(id):
-    try:
-        coupon = Coupon.query.get_or_404(id)
-        db.session.delete(coupon)
-        db.session.commit()
-        return jsonify({"message": "Coupon deleted successfully"}), 200
-    except Exception as e:
-        db.session.rollback()
         return jsonify({"error": str(e)}), 400

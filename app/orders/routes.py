@@ -29,7 +29,7 @@ def checkout():
         # Apply coupon if provided
         discount = 0
         if coupon_code:
-            coupon = Coupon.query.filter_by(code=coupon_code, is_active=True).first()
+            coupon = Coupon.query.filter_by(code=coupon_code, active=True).first()
             if coupon:
                 discount = total_price * (coupon.discount / 100)
                 total_price -= discount
